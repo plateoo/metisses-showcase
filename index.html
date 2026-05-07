@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Métisses — Voyage culinaire au cœur du Sénégal | Liège</title>
+  <meta name="description" content="Restaurant africain à Liège. Cuisine lébou et peule par la chef Ndeye Mour N'diaye, dans une maison du 18ème siècle, Rue Roture." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'serif': ['Fraunces', 'serif'],
+            'sans': ['DM Sans', 'sans-serif'],
+          },
+          colors: {
+            'ivory': '#FAF6F0',
+            'ivory-warm': '#F4ECDF',
+            'terracotta': '#C75D3F',
+            'terracotta-deep': '#9C3E25',
+            'ochre': '#D89556',
+            'savane': '#5C6B3F',
+            'brass': '#B8945F',
+            'charcoal': '#2A1F1A',
+            'sand': '#E8D9C0',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS (animations + patterns) -->
+  <style>
+    /* === ANIMATIONS REVEAL AU SCROLL === */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* === MARQUEE === */
+    .marquee-track {
+      animation: marquee 30s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* === PULSE LENT === */
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(1.05); }
+    }
+    .animate-pulse-slow {
+      animation: pulse-slow 6s ease-in-out infinite;
+    }
+
+    /* === BOUNCE LENT === */
+    @keyframes bounce-slow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+    .animate-bounce-slow {
+      animation: bounce-slow 2.5s ease-in-out infinite;
+    }
+
+    /* === DISH CARDS HOVER === */
+    .dish-card {
+      cursor: pointer;
+    }
+    .dish-card .dish-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(42, 31, 26, 0.95), rgba(42, 31, 26, 0.4) 60%, transparent);
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .dish-card:hover .dish-overlay {
+      opacity: 1;
+    }
+    .dish-card .aspect-\[4\/5\] {
+      transition: transform 0.6s ease;
+    }
+    .dish-card:hover .aspect-\[4\/5\] {
+      transform: scale(1.02);
+    }
+
+    /* === HEADER SCROLLED === */
+    #header.scrolled {
+      background: rgba(250, 246, 240, 0.95);
+      box-shadow: 0 4px 20px rgba(42, 31, 26, 0.05);
+    }
+
+    /* === SMOOTH SCROLL === */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    /* === SÉLECTION TEXTE === */
+    ::selection {
+      background: #C75D3F;
+      color: #FAF6F0;
+    }
+  </style>
+</head>
+<body class="bg-ivory text-charcoal font-sans antialiased">
+
+  <!-- ========== HEADER ========== -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-ivory/90 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#hero" class="font-serif text-2xl tracking-tight text-charcoal">
+        Métisses<span class="text-terracotta">.</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm">
+        <a href="#histoire" class="hover:text-terracotta transition">L'âme</a>
+        <a href="#carte" class="hover:text-terracotta transition">Carte</a>
+        <a href="#galerie" class="hover:text-terracotta transition">Galerie</a>
+        <a href="#experience" class="hover:text-terracotta transition">Expérience</a>
+        <a href="#evenements" class="hover:text-terracotta transition">Événements</a>
+        <a href="#contact" class="hover:text-terracotta transition">Contact</a>
+      </nav>
+      <a href="#reservation" class="hidden md:inline-block bg-terracotta text-ivory px-5 py-2.5 rounded-full text-sm hover:bg-terracotta-deep transition">
+        Réserver
+      </a>
+      <button id="menuToggle" class="md:hidden text-charcoal" aria-label="Menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+    <!-- Menu mobile -->
+    <div id="mobileMenu" class="hidden md:hidden bg-ivory border-t border-sand">
+      <nav class="flex flex-col px-6 py-4 gap-3 text-base">
+        <a href="#histoire" class="py-2">L'âme</a>
+        <a href="#carte" class="py-2">Carte</a>
+        <a href="#galerie" class="py-2">Galerie</a>
+        <a href="#experience" class="py-2">Expérience</a>
+        <a href="#evenements" class="py-2">Événements</a>
+        <a href="#contact" class="py-2">Contact</a>
+        <a href="#reservation" class="bg-terracotta text-ivory px-5 py-3 rounded-full text-center mt-2">Réserver</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero" class="relative min-h-screen flex items-center overflow-hidden bg-charcoal">
+    <!-- Pattern wax SVG en fond -->
+    <div class="absolute inset-0 opacity-[0.08]" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22 viewBox=%220 0 120 120%22><circle cx=%2260%22 cy=%2260%22 r=%2240%22 fill=%22none%22 stroke=%22%23D89556%22 stroke-width=%221%22/><circle cx=%2260%22 cy=%2260%22 r=%2225%22 fill=%22none%22 stroke=%22%23D89556%22 stroke-width=%221%22/><circle cx=%2260%22 cy=%2260%22 r=%2210%22 fill=%22%23D89556%22/></svg>');"></div>
+
+    <!-- Gradient overlay chaud -->
+    <div class="absolute inset-0 bg-gradient-to-br from-terracotta-deep/60 via-charcoal/80 to-charcoal"></div>
+
+    <!-- Forme organique animée -->
+    <div class="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full bg-ochre/20 blur-3xl animate-pulse-slow"></div>
+    <div class="absolute -bottom-32 -left-32 w-[600px] h-[600px] rounded-full bg-terracotta/20 blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+
+    <div class="relative max-w-6xl mx-auto px-6 py-32 text-ivory">
+      <p class="font-sans text-sm tracking-[0.3em] uppercase text-ochre mb-6 reveal">Restaurant sénégalais — Liège</p>
+      <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.05] mb-8 max-w-4xl reveal" style="font-variation-settings: 'opsz' 144;">
+        Un voyage <em class="text-ochre not-italic font-normal" style="font-style: italic;">gustatif</em> au rythme du Sénégal.
+      </h1>
+      <p class="font-serif text-xl md:text-2xl text-ivory/80 max-w-2xl mb-12 leading-relaxed reveal">
+        Acras, poulet moambe, canard à la mangue. La cuisine lébou et peule de Ndeye Mour N'diaye, dans une maison du 18<sup>ème</sup> siècle.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 reveal">
+        <a href="#reservation" class="inline-flex items-center justify-center bg-terracotta text-ivory px-8 py-4 rounded-full hover:bg-terracotta-deep transition group">
+          Réserver une table
+          <svg class="ml-2 group-hover:translate-x-1 transition" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#carte" class="inline-flex items-center justify-center border border-ivory/30 text-ivory px-8 py-4 rounded-full hover:bg-ivory/10 transition">
+          Découvrir la carte
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-ivory/60 animate-bounce-slow">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- ========== HISTOIRE ========== -->
+  <section id="histoire" class="py-24 md:py-32 bg-ivory-warm relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      <!-- Portrait stylisé en SVG -->
+      <div class="reveal">
+        <div class="relative aspect-[4/5] max-w-md mx-auto">
+          <div class="absolute inset-0 bg-terracotta rounded-tl-[120px] rounded-br-[120px]"></div>
+          <div class="absolute inset-4 bg-ochre rounded-tl-[100px] rounded-br-[100px] flex items-center justify-center">
+            <!-- Silhouette portrait stylisée -->
+            <svg viewBox="0 0 200 250" class="w-3/4 h-3/4 text-charcoal/80">
+              <circle cx="100" cy="80" r="50" fill="currentColor" opacity="0.9"/>
+              <path d="M30 250 Q30 150 100 150 Q170 150 170 250 Z" fill="currentColor" opacity="0.9"/>
+              <!-- Foulard stylisé -->
+              <path d="M50 60 Q100 20 150 60 Q140 30 100 25 Q60 30 50 60 Z" fill="#C75D3F"/>
+            </svg>
+          </div>
+          <!-- Pattern décoratif -->
+          <div class="absolute -bottom-6 -right-6 w-24 h-24 border-2 border-brass rounded-full"></div>
+          <div class="absolute -top-6 -left-6 w-16 h-16 bg-savane rounded-full opacity-80"></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <p class="font-sans text-xs tracking-[0.3em] uppercase text-terracotta mb-4">L'âme de la maison</p>
+        <h2 class="font-serif text-4xl md:text-5xl leading-tight mb-8 text-charcoal">
+          Ndeye Mour <em class="text-terracotta">N'diaye</em>
+        </h2>
+        <p class="font-serif text-2xl italic text-charcoal/80 mb-8 leading-relaxed border-l-2 border-terracotta pl-6">
+          « L'Afrique dans l'assiette, la mémoire dans chaque épice. »
+        </p>
+        <p class="text-charcoal/70 mb-6 leading-relaxed">
+          Sénégalaise, lébou et peule, Ndeye a investi une vieille maison du 18<sup>ème</sup> siècle au cœur d'Outremeuse, dans la noble Rue Roture. Depuis, elle y déploie une cuisine de mémoire et de voyage.
+        </p>
+        <p class="text-charcoal/70 leading-relaxed">
+          Acras dorés, poulet moambe à la sauce d'arachide, canard fondant à la mangue : chaque plat est une invitation au voyage, un hommage aux saveurs subsahariennes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CARTE ========== -->
+  <section id="carte" class="py-24 md:py-32 bg-ivory">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <p class="font-sans text-xs tracking-[0.3em] uppercase text-terracotta mb-4">Carte signature</p>
+        <h2 class="font-serif text-4xl md:text-5xl text-charcoal mb-6">
+          Six saveurs, un <em class="text-terracotta">continent</em>.
+        </h2>
+        <p class="text-charcoal/70 max-w-2xl mx-auto">
+          Une sélection de nos plats phares. La carte complète varie au fil des saisons et des inspirations de Ndeye.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Plat 1 : Acras -->
+        <article class="dish-card group reveal">
+          <div class="aspect-[4/5] bg-sand rounded-3xl overflow-hidden relative">
+            <svg viewBox="0 0 200 250" class="w-full h-full">
+              <circle cx="100" cy="160" r="70" fill="#D89556"/>
+              <circle cx="100" cy="160" r="55" fill="#9C3E25"/>
+              <circle cx="85" cy="145" r="15" fill="#C75D3F"/>
+              <circle cx="115" cy="155" r="12" fill="#C75D3F"/>
+              <circle cx="100" cy="170" r="14" fill="#C75D3F"/>
+              <circle cx="120" cy="135" r="10" fill="#C75D3F"/>
+            </svg>
+            <div class="dish-overlay">
+              <p class="text-ivory text-sm leading-relaxed">Beignets de poisson épicés, croustillants à l'extérieur, tendres à l'intérieur. Servis avec sauce kani.</p>
+            </div>
+          </div>
+          <div class="pt-6 flex justify-between items-baseline">
+            <h3 class="font-serif text-2xl text-charcoal">Acras</h3>
+            <span class="font-sans text-terracotta">12 €</span>
+          </div>
+          <p class="text-charcoal/60 text-sm mt-2">Entrée — Sénégal</p>
+        </article>
+
+        <!-- Plat 2 : Poulet moambe -->
+        <article class="dish-card group reveal">
+          <div class="aspect-[4/5] bg-sand rounded-3xl overflow-hidden relative">
+            <svg viewBox="0 0 200 250" class="w-full h-full">
+              <ellipse cx="100" cy="170" rx="80" ry="40" fill="#5C6B3F"/>
+              <ellipse cx="100" cy="160" rx="70" ry="35" fill="#9C3E25"/>
+              <path d="M70 150 Q100 130 130 150 Q120 170 100 170 Q80 170 70 150 Z" fill="#C75D3F"/>
+              <circle cx="85" cy="155" r="6" fill="#D89556"/>
+              <circle cx="115" cy="160" r="6" fill="#D89556"/>
+            </svg>
+            <div class="dish-overlay">
+              <p class="text-ivory text-sm leading-relaxed">Poulet mijoté dans une sauce onctueuse à la pâte d'arachide et tomates. Servi avec riz blanc parfumé.</p>
+            </div>
+          </div>
+          <div class="pt-6 flex justify-between items-baseline">
+            <h3 class="font-serif text-2xl text-charcoal">Poulet Moambe</h3>
+            <span class="font-sans text-terracotta">22 €</span>
+          </div>
+          <p class="text-charcoal/60 text-sm mt-2">Plat — Afrique centrale</p>
+        </article>
+
+        <!-- Plat 3 : Canard à la mangue -->
+        <article class="dish-card group reveal">
+          <div class="aspect-[4/5] bg-sand rounded-3xl overflow-hidden relative">
+            <svg viewBox="0 0 200 250" class="w-full h-full">
+              <ellipse cx="100" cy="170" rx="75" ry="38" fill="#B8945F"/>
+              <path d="M50 165 Q100 130 150 165 Q140 185 100 185 Q60 185 50 165 Z" fill="#9C3E25"/>
+              <ellipse cx="80" cy="150" rx="18" ry="12" fill="#D89556"/>
+              <ellipse cx="120" cy="155" rx="20" ry="13" fill="#D89556"/>
+              <ellipse cx="100" cy="165" rx="15" ry="10" fill="#D89556"/>
+            </svg>
+            <div class="dish-overlay">
+              <p class="text-ivory text-sm leading-relaxed">Magret de canard rôti, sauce mangue épicée, accompagné de légumes de saison.</p>
+            </div>
+          </div>
+          <div class="pt-6 flex justify-between items-baseline">
+            <h3 class="font-serif text-2xl text-charcoal">Canard à la Mangue</h3>
+            <span class="font-sans text-terracotta">26 €</span>
+          </div>
+          <p class="text-charcoal/60 text-sm mt-2">Plat signature — Création Ndeye</p>
+        </article>
+
+        <!-- Plat 4 : Yassa -->
+        <article class="dish-card group reveal">
+          <div class="aspect-[4/5] bg-sand rounded-3xl overflow-hidden relative">
+            <svg viewBox="0 0 200 250" class="w-full h-full">
+              <circle cx="100" cy="160" r="75" fill="#D89556"/>
+              <path d="M40 160 Q100 110 160 160" stroke="#C75D3F" stroke-width="8" fill="none"/>
+              <path d="M50 170 Q100 130 150 170" stroke="#9C3E25" stroke-width="6" fill="none"/>
+              <circle cx="100" cy="160" r="20" fill="#5C6B3F"/>
+            </svg>
+            <div class="dish-overlay">
+              <p class="text-ivory text-sm leading-relaxed">Poulet ou poisson mariné au citron et oignons confits. Plat emblématique de la Casamance.</p>
+            </div>
+          </div>
+          <div class="pt-6 flex justify-between items-baseline">
+            <h3 class="font-serif text-2xl text-charcoal">Yassa</h3>
+            <span class="font-sans text-terracotta">21 €</span>
+          </div>
+          <p class="text-charcoal/60 text-sm mt-2">Plat — Sénégal</p>
+        </article>
+
+        <!-- Plat 5 : Thieboudienne -->
+        <article class="dish-card group reveal">
+          <div class="aspect-[4/5] bg-sand rounded-3xl overflow-hidden relative">
+            <svg viewBox="0 0 200 250" class="w-full h-full">
+              <circle cx="100" cy="160" r="80" fill="#9C3E25"/>
+              <circle cx="100" cy="160" r="65" fill="#C75D3F"/>
+              <ellipse cx="100" cy="155" rx="40" ry="20" fill="#B8945F"/>
+              <circle cx="80" cy="170" r="8" fill="#5C6B3F"/>
+              <circle cx="120" cy="172" r="8" fill="#5C6B3F"/>
+              <circle cx="100" cy="180" r="7" fill="#5C6B3F"/>
+            </svg>
+            <div class="dish-overlay">
+              <p class="text-ivory text-sm leading-relaxed">Plat national sénégalais : riz rouge mijoté avec poisson, légumes et tamarin.</p>
+            </div>
+          </div>
+          <div class="pt-6 flex justify-between items-baseline">
+            <h3 class="font-serif text-2xl text-charcoal">Thieboudienne</h3>
+            <span class="font-sans text-terracotta">24 €</span>
+          </div>
+          <p class="text-charcoal/60 text-sm mt-2">Plat national — Sénégal</p>
+        </article>
+
+        <!-- Plat 6 : Bissap -->
+        <article class="dish-card group reveal">
+          <div class="aspect-[4/5] bg-sand rounded-3xl overflow-hidden relative">
+            <svg viewBox="0 0 200 250" class="w-full h-full">
+              <path d="M70 80 L70 200 Q70 220 100 220 Q130 220 130 200 L130 80 Z" fill="#9C3E25"/>
+              <ellipse cx="100" cy="80" rx="30" ry="8" fill="#C75D3F"/>
+              <path d="M85 100 Q100 95 115 100" stroke="#D89556" stroke-width="2" fill="none"/>
+            </svg>
+            <div class="dish-overlay">
+              <p class="text-ivory text-sm leading-relaxed">Infusion glacée de fleurs d'hibiscus, rafraîchissante et parfumée à la menthe.</p>
+            </div>
+          </div>
+          <div class="pt-6 flex justify-between items-baseline">
+            <h3 class="font-serif text-2xl text-charcoal">Bissap</h3>
+            <span class="font-sans text-terracotta">5 €</span>
+          </div>
+          <p class="text-charcoal/60 text-sm mt-2">Boisson — Hibiscus</p>
+        </article>
+      </div>
+
+      <div class="text-center mt-16 reveal">
+        <a href="#" class="inline-flex items-center font-serif text-lg text-terracotta hover:text-terracotta-deep transition group">
+          Voir la carte complète
+          <svg class="ml-2 group-hover:translate-x-1 transition" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MARQUEE SAVEURS ========== -->
+  <section class="bg-terracotta text-ivory py-12 overflow-hidden">
+    <div class="marquee-track flex gap-12 whitespace-nowrap">
+      <span class="font-serif text-4xl md:text-5xl italic">acras</span>
+      <span class="text-ochre text-4xl md:text-5xl">✦</span>
+      <span class="font-serif text-4xl md:text-5xl italic">moambe</span>
+      <span class="text-ochre text-4xl md:text-5xl">✦</span>
+      <span class="font-serif text-4xl md:text-5xl italic">tamarin</span>
+      <span class="text-ochre text-4xl md:text-5xl">✦</span>
+      <span class="font-serif text-4xl md:text-5xl italic">arachide</span>
+      <span class="text-ochre text-4xl md:text-5xl">✦</span>
+      <span class="font-serif text-4xl md:text-5xl italic">bissap</span>
+      <span class="text-ochre text-4xl md:text-5xl">✦</span>
+      <span class="font-serif text-4xl md:text-5xl italic">mangue</span>
+      <span class="text-ochre text-4xl md:text-5xl">✦</span>
+      <!-- Duplique pour boucle continue -->
+      <span class="font-serif text-4xl md:text-5xl italic">acras</span>
+      <span class="text-ochre text-4xl md:text-5xl">✦</span>
+      <span class="font-serif text-4xl md:text-5xl italic">moambe</span>
+      <span class="text-ochre text-4xl md:text-5xl">✦</span>
+      <span class="font-serif text-4xl md:text-5xl italic">tamarin</span>
+      <span class="text-ochre text-4xl md:text-5xl">✦</span>
+      <span class="font-serif text-4xl md:text-5xl italic">arachide</span>
+      <span class="text-ochre text-4xl md:text-5xl">✦</span>
+      <span class="font-serif text-4xl md:text-5xl italic">bissap</span>
+      <span class="text-ochre text-4xl md:text-5xl">✦</span>
+      <span class="font-serif text-4xl md:text-5xl italic">mangue</span>
+      <span class="text-ochre text-4xl md:text-5xl">✦</span>
+    </div>
+  </section>
+
+  <!-- ========== GALERIE ========== -->
+  <section id="galerie" class="py-24 md:py-32 bg-ivory">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <p class="font-sans text-xs tracking-[0.3em] uppercase text-terracotta mb-4">Galerie</p>
+        <h2 class="font-serif text-4xl md:text-5xl text-charcoal">
+          L'<em class="text-terracotta">atmosphère</em>.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div class="aspect-square bg-terracotta rounded-2xl reveal flex items-center justify-center text-ivory/30 font-serif text-sm">[ Plat ]</div>
+        <div class="aspect-[1/1.4] bg-ochre rounded-2xl row-span-2 reveal flex items-center justify-center text-charcoal/30 font-serif text-sm">[ Salle ]</div>
+        <div class="aspect-square bg-savane rounded-2xl reveal flex items-center justify-center text-ivory/40 font-serif text-sm">[ Détail ]</div>
+        <div class="aspect-square bg-sand rounded-2xl reveal flex items-center justify-center text-charcoal/30 font-serif text-sm">[ Cuisine ]</div>
+        <div class="aspect-square bg-brass rounded-2xl reveal flex items-center justify-center text-ivory/30 font-serif text-sm">[ Plat ]</div>
+        <div class="aspect-square bg-charcoal rounded-2xl reveal flex items-center justify-center text-ivory/30 font-serif text-sm">[ Ambiance ]</div>
+        <div class="aspect-[1/1.4] bg-terracotta-deep rounded-2xl row-span-2 reveal flex items-center justify-center text-ivory/30 font-serif text-sm">[ Chef ]</div>
+        <div class="aspect-square bg-ochre rounded-2xl reveal flex items-center justify-center text-charcoal/30 font-serif text-sm">[ Boisson ]</div>
+        <div class="aspect-square bg-sand rounded-2xl reveal flex items-center justify-center text-charcoal/30 font-serif text-sm">[ Détail ]</div>
+      </div>
+      <p class="text-center text-charcoal/50 text-sm mt-8 italic">Placeholders v1 — à remplacer par photos client</p>
+    </div>
+  </section>
+
+  <!-- ========== EXPÉRIENCE ========== -->
+  <section id="experience" class="py-24 md:py-32 bg-ivory-warm relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <p class="font-sans text-xs tracking-[0.3em] uppercase text-terracotta mb-4">L'expérience</p>
+        <h2 class="font-serif text-4xl md:text-5xl text-charcoal">
+          Une maison du 18<sup>ème</sup>, <em class="text-terracotta">une autre époque</em>.
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-4 bg-terracotta rounded-full flex items-center justify-center">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3 class="font-serif text-xl mb-2">Maison historique</h3>
+          <p class="text-charcoal/60 text-sm">Bâtisse du 18<sup>ème</sup> siècle au cœur d'Outremeuse.</p>
+        </div>
+
+        <div class="text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-4 bg-ochre rounded-full flex items-center justify-center">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2M3 18V8a2 2 0 012-2h10v12"/></svg>
+          </div>
+          <h3 class="font-serif text-xl mb-2">Terrasse</h3>
+          <p class="text-charcoal/60 text-sm">Espace extérieur convivial pour les beaux jours.</p>
+        </div>
+
+        <div class="text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-4 bg-savane rounded-full flex items-center justify-center">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3 class="font-serif text-xl mb-2">Idéal familles</h3>
+          <p class="text-charcoal/60 text-sm">Accueil chaleureux pour grands et petits.</p>
+        </div>
+
+        <div class="text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-4 bg-brass rounded-full flex items-center justify-center">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+          </div>
+          <h3 class="font-serif text-xl mb-2">Accès PMR</h3>
+          <p class="text-charcoal/60 text-sm">Entrée adaptée aux personnes à mobilité réduite.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== AVIS ========== -->
+  <section class="py-24 md:py-32 bg-charcoal text-ivory relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22 viewBox=%220 0 120 120%22><circle cx=%2260%22 cy=%2260%22 r=%2240%22 fill=%22none%22 stroke=%22%23D89556%22 stroke-width=%221%22/></svg>');"></div>
+
+    <div class="max-w-6xl mx-auto px-6 relative">
+      <div class="text-center mb-16 reveal">
+        <p class="font-sans text-xs tracking-[0.3em] uppercase text-ochre mb-4">Ils en parlent</p>
+        <h2 class="font-serif text-4xl md:text-5xl">
+          Recommandé par le <em class="text-ochre">Petit Futé</em>.
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-ivory/5 backdrop-blur p-8 rounded-3xl border border-ivory/10 reveal">
+          <div class="text-ochre text-2xl mb-4">★★★★★</div>
+          <p class="font-serif italic text-lg leading-relaxed mb-6">« Une cuisine d'âme, généreuse et précise. Le canard à la mangue est inoubliable. »</p>
+          <p class="text-sm text-ivory/60">— TripAdvisor</p>
+        </div>
+
+        <div class="bg-ivory/5 backdrop-blur p-8 rounded-3xl border border-ivory/10 reveal">
+          <div class="text-ochre text-2xl mb-4">★★★★★</div>
+          <p class="font-serif italic text-lg leading-relaxed mb-6">« Un voyage gustatif authentique. Ndeye est une chef passionnée et son accueil est rare. »</p>
+          <p class="text-sm text-ivory/60">— Google Reviews</p>
+        </div>
+
+        <div class="bg-ivory/5 backdrop-blur p-8 rounded-3xl border border-ivory/10 reveal">
+          <div class="text-ochre text-2xl mb-4">★★★★★</div>
+          <p class="font-serif italic text-lg leading-relaxed mb-6">« L'adresse africaine de Liège. Le cadre est magique, les saveurs explosent. »</p>
+          <p class="text-sm text-ivory/60">— Petit Futé</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ÉVÉNEMENTS ========== -->
+  <section id="evenements" class="py-24 md:py-32 bg-ivory">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <p class="font-sans text-xs tracking-[0.3em] uppercase text-terracotta mb-4">Événements</p>
+          <h2 class="font-serif text-4xl md:text-5xl text-charcoal mb-6">
+            Saveurs <em class="text-terracotta">d'Outremeuse</em>.
+          </h2>
+          <p class="text-charcoal/70 mb-6 leading-relaxed">
+            Tout au long de l'année, Métisses ouvre ses portes pour des soirées thématiques, des dégustations et des rencontres avec des artistes de la diaspora.
+          </p>
+          <p class="text-charcoal/70 mb-8 leading-relaxed">
+            Notre prochaine soirée : <strong class="text-charcoal">Saveurs d'Outremeuse</strong>, dimanche 17 mai.
+          </p>
+          <a href="#" class="inline-flex items-center font-serif text-terracotta hover:text-terracotta-deep transition group">
+            Voir tous les événements
+            <svg class="ml-2 group-hover:translate-x-1 transition" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="reveal">
+          <div class="bg-gradient-to-br from-terracotta to-terracotta-deep p-12 rounded-3xl text-ivory">
+            <p class="font-sans text-sm tracking-widest uppercase opacity-80 mb-4">Prochain événement</p>
+            <h3 class="font-serif text-3xl mb-4">Saveurs d'Outremeuse</h3>
+            <p class="opacity-90 mb-6 leading-relaxed">Une soirée immersive autour des cuisines de la diaspora ouest-africaine. Menu dégustation 5 services, accords boissons.</p>
+            <div class="flex items-center gap-4 text-sm opacity-90">
+              <span>📅 Dim. 17 mai</span>
+              <span>•</span>
+              <span>🕖 19h00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRIVATISATION ========== -->
+  <section class="py-24 md:py-32 bg-savane text-ivory relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <p class="font-sans text-xs tracking-[0.3em] uppercase text-ochre mb-4 reveal">Groupes & Privatisation</p>
+      <h2 class="font-serif text-4xl md:text-5xl mb-8 max-w-3xl mx-auto leading-tight reveal">
+        Privatisez Métisses pour vos <em class="text-ochre">événements</em>.
+      </h2>
+      <p class="text-ivory/80 max-w-2xl mx-auto mb-12 leading-relaxed reveal">
+        Mariages, anniversaires, événements d'entreprise. Notre équipe conçoit avec vous une expérience sur-mesure dans un cadre unique.
+      </p>
+      <a href="#contact" class="inline-flex items-center justify-center bg-ivory text-charcoal px-8 py-4 rounded-full hover:bg-ochre hover:text-ivory transition reveal">
+        Demander un devis
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== RÉSERVATION & CONTACT ========== -->
+  <section id="reservation" class="py-24 md:py-32 bg-ivory-warm">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16">
+        <div id="contact" class="reveal">
+          <p class="font-sans text-xs tracking-[0.3em] uppercase text-terracotta mb-4">Contact</p>
+          <h2 class="font-serif text-4xl md:text-5xl text-charcoal mb-8 leading-tight">
+            Venez nous <em class="text-terracotta">rencontrer</em>.
+          </h2>
+
+          <div class="space-y-6 text-charcoal/80">
+            <div>
+              <p class="font-serif text-lg text-charcoal mb-1">Adresse</p>
+              <p>Rue Roture 70<br>4020 Liège (Outremeuse)</p>
+            </div>
+            <div>
+              <p class="font-serif text-lg text-charcoal mb-1">Téléphone</p>
+              <a href="tel:+3243422292" class="hover:text-terracotta transition">+32 4 342 22 92</a>
+            </div>
+            <div>
+              <p class="font-serif text-lg text-charcoal mb-1">Horaires</p>
+              <p>Lundi — Jeudi · Dimanche : 18h00 — 23h00<br>Vendredi · Samedi : 18h00 — 00h00</p>
+            </div>
+            <div class="flex gap-4 pt-4">
+              <a href="https://instagram.com/restaurant.metisses" class="w-11 h-11 bg-charcoal text-ivory rounded-full flex items-center justify-center hover:bg-terracotta transition" aria-label="Instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01"/></svg>
+              </a>
+              <a href="https://facebook.com" class="w-11 h-11 bg-charcoal text-ivory rounded-full flex items-center justify-center hover:bg-terracotta transition" aria-label="Facebook">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="bg-charcoal text-ivory p-10 rounded-3xl">
+            <h3 class="font-serif text-2xl mb-6">Réserver une table</h3>
+            <p class="text-ivory/70 text-sm mb-8">Réservation par téléphone ou par email. Nous vous répondons sous 24h.</p>
+            <a href="tel:+3243422292" class="block w-full bg-terracotta text-ivory text-center py-4 rounded-full hover:bg-terracotta-deep transition mb-4">
+              📞 Appeler le restaurant
+            </a>
+            <a href="mailto:contact@metisses.be" class="block w-full border border-ivory/30 text-ivory text-center py-4 rounded-full hover:bg-ivory/10 transition">
+              ✉️ Envoyer un email
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-charcoal text-ivory/60 py-12">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="font-serif text-xl text-ivory">Métisses<span class="text-terracotta">.</span></p>
+      <p class="text-sm">© 2026 Métisses — Tous droits réservés.</p>
+      <p class="text-sm">Site conçu par <a href="#" class="text-ochre hover:text-terracotta transition">It&Co Agency</a></p>
+    </div>
+  </footer>
+
+  <!-- CTA flottant mobile -->
+  <a href="tel:+3243422292" class="fixed bottom-6 right-6 z-40 md:hidden bg-terracotta text-ivory w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:bg-terracotta-deep transition">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    // === REVEAL ON SCROLL (Intersection Observer) ===
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // === HEADER SCROLLED STATE ===
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // === MOBILE MENU TOGGLE ===
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    // Fermer le menu mobile au clic sur un lien
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
