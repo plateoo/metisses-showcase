@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conditions Générales de Vente | Serenity Studio</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        fontFamily: { 'serif': ['Fraunces', 'serif'], 'sans': ['DM Sans', 'sans-serif'] },
+        colors: {
+          'ivory': '#FAF6F0', 'ivory-warm': '#F4ECDF', 'terracotta': '#C75D3F',
+          'terracotta-deep': '#9C3E25', 'ochre': '#D89556', 'savane': '#5C6B3F',
+          'brass': '#B8945F', 'charcoal': '#2A1F1A', 'sand': '#E8D9C0',
+        }
+      }}
+    }
+  </script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; }
+      article { break-inside: avoid; }
+    }
+    @page { margin: 1.5cm; }
+    article h2 { scroll-margin-top: 2rem; }
+  </style>
+</head>
+<body class="bg-ivory text-charcoal font-sans antialiased">
+
+  <div class="no-print fixed top-6 right-6 z-50 flex gap-3">
+    <button onclick="window.print()" class="bg-terracotta text-ivory px-5 py-3 rounded-full text-sm font-medium hover:bg-terracotta-deep transition shadow-lg flex items-center gap-2">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+      Imprimer
+    </button>
+    <a href="devis.html" class="bg-charcoal text-ivory px-5 py-3 rounded-full text-sm font-medium hover:bg-charcoal/80 transition shadow-lg">
+      ← Retour au devis
+    </a>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-6 md:px-12 py-12 md:py-16">
+
+    <!-- En-tête -->
+    <header class="pb-10 border-b-2 border-terracotta">
+      <p class="font-serif text-3xl text-charcoal">Serenity Studio<span class="text-terracotta">.</span></p>
+      <h1 class="font-serif text-4xl md:text-5xl text-charcoal mt-8 leading-tight">
+        Conditions Générales <em class="text-terracotta">de Vente</em>
+      </h1>
+      <p class="text-charcoal/60 text-sm mt-4">Dernière mise à jour : 7 mai 2026 · Version 1.0</p>
+    </header>
+
+    <!-- Préambule -->
+    <article class="mt-12">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Article 1 — Identité du prestataire</h2>
+      <p class="text-charcoal/80 leading-relaxed mb-3">Les présentes Conditions Générales de Vente (ci-après "CGV") sont conclues entre :</p>
+      <div class="bg-ivory-warm p-5 rounded-2xl text-sm leading-relaxed">
+        <p><strong>Serenity Belgium</strong>, société exerçant sous le nom commercial <strong>Serenity Studio</strong></p>
+        <p>Numéro de TVA : BE 1031.214.423</p>
+        <p>Email : contact.serenitybelgium@gmail.com</p>
+        <p>Téléphone : 0470/11.82.22</p>
+      </div>
+      <p class="text-charcoal/80 leading-relaxed mt-4">Ci-après désigné "le Prestataire", et toute personne physique ou morale ayant accepté un devis émis par le Prestataire, ci-après désignée "le Client".</p>
+    </article>
+
+    <article class="mt-10">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Article 2 — Définitions</h2>
+      <ul class="space-y-2 text-charcoal/80 leading-relaxed text-sm">
+        <li><strong>Prestation</strong> : ensemble des services de conception, développement, intégration, déploiement et maintenance de sites web et applications digitales.</li>
+        <li><strong>Livrable</strong> : tout élément (code source, fichier, page web, document) remis au Client en exécution du contrat.</li>
+        <li><strong>Devis</strong> : document chiffré décrivant les prestations, leur prix et leurs modalités, signé pour acceptation par le Client.</li>
+        <li><strong>Bon pour accord</strong> : signature du devis valant acceptation sans réserve des présentes CGV et lancement de la prestation.</li>
+      </ul>
+    </article>
+
+    <article class="mt-10">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Article 3 — Objet et champ d'application</h2>
+      <p class="text-charcoal/80 leading-relaxed mb-3">Les présentes CGV régissent l'ensemble des prestations fournies par le Prestataire à ses Clients professionnels (relations B2B). Toute commande implique l'acceptation pleine et entière des présentes CGV par le Client, qui reconnaît en avoir pris connaissance.</p>
+      <p class="text-charcoal/80 leading-relaxed">Les CGV prévalent sur toute condition d'achat du Client, sauf accord exprès et écrit du Prestataire.</p>
+    </article>
+
+    <article class="mt-10">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Article 4 — Devis et commande</h2>
+      <p class="text-charcoal/80 leading-relaxed mb-3">Tout devis émis par le Prestataire est valable <strong>30 jours</strong> à compter de sa date d'émission, sauf mention contraire.</p>
+      <p class="text-charcoal/80 leading-relaxed mb-3">La commande est ferme et définitive à compter de la réception du devis signé "bon pour accord" par le Client et du paiement de l'acompte stipulé. Le Prestataire se réserve le droit de refuser toute commande pour motif légitime.</p>
+      <p class="text-charcoal/80 leading-relaxed">Aucune modification ne pourra être apportée à un devis accepté sans avenant écrit signé par les deux parties.</p>
+    </article>
+
+    <article class="mt-10">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Article 5 — Prix et modalités de paiement</h2>
+      <p class="text-charcoal/80 leading-relaxed mb-3">Les prix sont exprimés en euros, hors taxes (HTVA). La TVA belge applicable (21% au jour des présentes) est ajoutée le cas échéant selon le statut du Client.</p>
+      <p class="text-charcoal/80 leading-relaxed mb-3">Sauf stipulation contraire dans le devis, les modalités de paiement sont les suivantes :</p>
+      <ul class="space-y-2 text-charcoal/80 leading-relaxed text-sm ml-6 list-disc mb-3">
+        <li>30% à la signature du devis (acompte non remboursable)</li>
+        <li>Solde à la livraison et mise en ligne du projet</li>
+      </ul>
+      <p class="text-charcoal/80 leading-relaxed mb-3">Le paiement s'effectue par virement bancaire sur le compte indiqué sur la facture, dans un délai maximum de <strong>30 jours</strong> à compter de la date de facturation.</p>
+      <p class="text-charcoal/80 leading-relaxed">En cas de retard de paiement, des intérêts de retard au taux légal belge en vigueur seront appliqués de plein droit, sans mise en demeure préalable, ainsi qu'une indemnité forfaitaire de 40€ pour frais de recouvrement, conformément au droit belge.</p>
+    </article>
+
+    <article class="mt-10">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Article 6 — Délais d'exécution</h2>
+      <p class="text-charcoal/80 leading-relaxed mb-3">Les délais indiqués dans le devis sont communiqués à titre indicatif. Ils commencent à courir à compter de la réception de l'acompte et de l'ensemble des éléments nécessaires à la réalisation de la prestation (contenus, accès, validations).</p>
+      <p class="text-charcoal/80 leading-relaxed">Tout retard imputable au Client (retard de validation, fourniture tardive de contenus, demandes hors périmètre) entraîne un report équivalent du délai de livraison, sans que le Prestataire puisse être tenu pour responsable.</p>
+    </article>
+
+    <article class="mt-10">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Article 7 — Obligations du Client</h2>
+      <p class="text-charcoal/80 leading-relaxed mb-3">Le Client s'engage à :</p>
+      <ul class="space-y-2 text-charcoal/80 leading-relaxed text-sm ml-6 list-disc">
+        <li>Fournir au Prestataire l'ensemble des éléments nécessaires à la prestation (textes, photos, logos, accès techniques) dans les délais convenus</li>
+        <li>Garantir qu'il dispose des droits nécessaires sur les contenus transmis (droits d'auteur, droits à l'image, marques)</li>
+        <li>Effectuer les validations dans les délais raisonnables convenus pour ne pas bloquer l'avancement</li>
+        <li>S'acquitter des paiements aux échéances convenues</li>
+        <li>Conserver les accès et identifiants remis lors de la livraison</li>
+      </ul>
+    </article>
+
+    <article class="mt-10">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Article 8 — Obligations du Prestataire</h2>
+      <p class="text-charcoal/80 leading-relaxed mb-3">Le Prestataire s'engage à :</p>
+      <ul class="space-y-2 text-charcoal/80 leading-relaxed text-sm ml-6 list-disc">
+        <li>Réaliser la prestation conformément aux règles de l'art et aux spécifications du devis</li>
+        <li>Mettre en œuvre tous les moyens raisonnables pour respecter les délais annoncés</li>
+        <li>Informer le Client de toute difficulté technique impactant la réalisation</li>
+        <li>Livrer les sources nécessaires à l'exploitation autonome du livrable après paiement intégral</li>
+      </ul>
+      <p class="text-charcoal/80 leading-relaxed mt-3">Le Prestataire est tenu à une obligation de moyens, et non de résultat.</p>
+    </article>
+
+    <article class="mt-10">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Article 9 — Propriété intellectuelle</h2>
+      <p class="text-charcoal/80 leading-relaxed mb-3">Les livrables (code source, design, contenus produits par le Prestataire) restent la propriété exclusive du Prestataire jusqu'au paiement intégral de la prestation.</p>
+      <p class="text-charcoal/80 leading-relaxed mb-3">À compter du paiement intégral, le Client dispose d'un droit d'exploitation non exclusif et non transférable sur les livrables, pour les besoins propres de son activité, sans limitation de durée.</p>
+      <p class="text-charcoal/80 leading-relaxed mb-3">Le Prestataire se réserve le droit de mentionner la prestation à titre de référence commerciale (portfolio, communications professionnelles), sauf demande contraire écrite du Client.</p>
+      <p class="text-charcoal/80 leading-relaxed">Les éléments tiers utilisés dans la prestation (polices, photos sous licence, modules open-source) restent soumis à leurs licences respectives.</p>
+    </article>
+
+    <article class="mt-10">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Article 10 — Hébergement et maintenance</h2>
+      <p class="text-charcoal/80 leading-relaxed mb-3">L'hébergement, le nom de domaine et la maintenance ne sont pas inclus dans la prestation de base, sauf mention expresse au devis. Ces services peuvent être fournis dans le cadre d'un contrat séparé avec facturation distincte.</p>
+      <p class="text-charcoal/80 leading-relaxed">Lorsque le Client gère lui-même son hébergement ou son nom de domaine, le Prestataire ne peut être tenu pour responsable des dysfonctionnements, indisponibilités ou pertes de données qui en résulteraient.</p>
+    </article>
+
+    <article class="mt-10">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Article 11 — Données personnelles (RGPD)</h2>
+      <p class="text-charcoal/80 leading-relaxed mb-3">Le Prestataire traite les données personnelles du Client (nom, coordonnées, données de facturation) conformément au Règlement Général sur la Protection des Données (RGPD) 2016/679 et à la législation belge applicable.</p>
+      <p class="text-charcoal/80 leading-relaxed mb-3">Ces données sont collectées et traitées exclusivement pour les besoins de l'exécution du contrat, de la facturation et de la communication commerciale, conservées pour une durée n'excédant pas les obligations légales (10 ans pour la comptabilité).</p>
+      <p class="text-charcoal/80 leading-relaxed">Le Client dispose d'un droit d'accès, de rectification, de suppression, de portabilité et d'opposition sur ses données, exerçable par email à contact.serenitybelgium@gmail.com.</p>
+    </article>
+
+    <article class="mt-10">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Article 12 — Confidentialité</h2>
+      <p class="text-charcoal/80 leading-relaxed">Chacune des parties s'engage à conserver confidentielles toutes les informations à caractère économique, technique ou commercial échangées dans le cadre de la prestation, et à ne pas les divulguer à des tiers sans accord écrit préalable, pendant toute la durée du contrat et pour une durée de 3 ans après son terme.</p>
+    </article>
+
+    <article class="mt-10">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Article 13 — Modifications et avenants</h2>
+      <p class="text-charcoal/80 leading-relaxed mb-3">Toute demande du Client portant sur des éléments non prévus au devis initial fera l'objet d'un avenant écrit, avec chiffrage complémentaire et délai supplémentaire le cas échéant.</p>
+      <p class="text-charcoal/80 leading-relaxed">Les modifications mineures dans la limite du périmètre validé sont incluses dans le forfait initial. Les modifications hors périmètre sont facturées au taux horaire de <strong>75€ HTVA</strong>.</p>
+    </article>
+
+    <article class="mt-10">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Article 14 — Résiliation</h2>
+      <p class="text-charcoal/80 leading-relaxed mb-3">En cas de manquement grave d'une partie à ses obligations, l'autre partie pourra résilier le contrat de plein droit, après mise en demeure restée sans effet pendant 15 jours.</p>
+      <p class="text-charcoal/80 leading-relaxed">En cas de résiliation imputable au Client, l'acompte versé reste acquis au Prestataire. Les prestations réalisées jusqu'à la date de résiliation sont dues, au prorata de l'avancement.</p>
+    </article>
+
+    <article class="mt-10">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Article 15 — Force majeure</h2>
+      <p class="text-charcoal/80 leading-relaxed">Aucune des parties ne pourra être tenue pour responsable d'un manquement résultant d'un cas de force majeure, tel que défini par la jurisprudence belge (catastrophe naturelle, guerre, panne généralisée d'infrastructures, etc.). Les délais d'exécution seront suspendus pendant la durée de l'événement.</p>
+    </article>
+
+    <article class="mt-10">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Article 16 — Limitation de responsabilité</h2>
+      <p class="text-charcoal/80 leading-relaxed mb-3">La responsabilité du Prestataire est strictement limitée aux dommages directs et prévisibles, à l'exclusion de tout dommage indirect (perte d'exploitation, perte de chiffre d'affaires, perte de données ne résultant pas d'une faute du Prestataire).</p>
+      <p class="text-charcoal/80 leading-relaxed">Le montant total des dommages-intérêts dus par le Prestataire ne pourra en tout état de cause excéder le montant total facturé au titre de la prestation concernée.</p>
+    </article>
+
+    <article class="mt-10">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Article 17 — Litiges et juridiction compétente</h2>
+      <p class="text-charcoal/80 leading-relaxed mb-3">En cas de différend, les parties s'efforceront de trouver une solution amiable préalable.</p>
+      <p class="text-charcoal/80 leading-relaxed">À défaut, tout litige relatif à l'interprétation ou à l'exécution des présentes CGV sera de la compétence exclusive des tribunaux du ressort du siège social du Prestataire en Belgique.</p>
+    </article>
+
+    <article class="mt-10">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Article 18 — Loi applicable</h2>
+      <p class="text-charcoal/80 leading-relaxed">Les présentes CGV sont régies par le droit belge, à l'exclusion de tout autre droit. La langue de référence des présentes est le français.</p>
+    </article>
+
+    <!-- Bloc validation -->
+    <section class="mt-16 bg-ivory-warm rounded-3xl p-8 md:p-10">
+      <h2 class="font-serif text-2xl text-charcoal mb-4">Acceptation des CGV</h2>
+      <p class="text-charcoal/80 leading-relaxed text-sm">
+        La signature du devis "bon pour accord" emporte acceptation pleine et entière des présentes Conditions Générales de Vente, sans réserve. Le Client reconnaît expressément en avoir pris connaissance préalablement à la commande.
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-12 pt-8 border-t border-sand text-center">
+      <p class="font-serif text-xl text-charcoal">Serenity Studio<span class="text-terracotta">.</span></p>
+      <p class="text-xs text-charcoal/50 mt-2">CGV Version 1.0 · Émises par Serenity Belgium · BE 1031.214.423</p>
+      <p class="text-xs text-charcoal/50 mt-1">
+        <a href="devis.html" class="text-terracotta hover:underline">← Retour au devis</a>
+        ·
+        <a href="index.html" class="text-terracotta hover:underline">Retour au site</a>
+      </p>
+    </footer>
+
+  </div>
+</body>
+</html>
