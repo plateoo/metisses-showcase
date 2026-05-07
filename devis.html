@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devis — Refonte digitale Métisses | Serenity Studio</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'serif': ['Fraunces', 'serif'],
+            'sans': ['DM Sans', 'sans-serif'],
+          },
+          colors: {
+            'ivory': '#FAF6F0',
+            'ivory-warm': '#F4ECDF',
+            'terracotta': '#C75D3F',
+            'terracotta-deep': '#9C3E25',
+            'ochre': '#D89556',
+            'savane': '#5C6B3F',
+            'brass': '#B8945F',
+            'charcoal': '#2A1F1A',
+            'sand': '#E8D9C0',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; }
+      .page-break { page-break-before: always; }
+      section { break-inside: avoid; }
+    }
+    @page { margin: 1.5cm; }
+    .formula-card:hover { transform: translateY(-4px); transition: transform 0.3s ease; }
+  </style>
+</head>
+<body class="bg-ivory text-charcoal font-sans antialiased">
+
+  <!-- Bouton imprimer / sauver en PDF (caché à l'impression) -->
+  <div class="no-print fixed top-6 right-6 z-50 flex gap-3">
+    <button onclick="window.print()" class="bg-terracotta text-ivory px-5 py-3 rounded-full text-sm font-medium hover:bg-terracotta-deep transition shadow-lg flex items-center gap-2">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+      Sauvegarder en PDF
+    </button>
+    <a href="index.html" class="bg-charcoal text-ivory px-5 py-3 rounded-full text-sm font-medium hover:bg-charcoal/80 transition shadow-lg flex items-center gap-2">
+      ← Voir la démo
+    </a>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-6 md:px-12 py-12 md:py-16">
+
+    <!-- En-tête -->
+    <header class="flex flex-col md:flex-row justify-between items-start gap-8 pb-10 border-b-2 border-terracotta">
+      <div>
+        <p class="font-serif text-3xl text-charcoal">Serenity Studio<span class="text-terracotta">.</span></p>
+        <p class="text-sm text-charcoal/60 mt-1">Agence digitale &amp; web sur-mesure</p>
+        <div class="mt-6 text-xs text-charcoal/70 leading-relaxed">
+          <p>Serenity Belgium</p>
+          <p>[Adresse postale à compléter]</p>
+          <p>TVA : BE 1031.214.423</p>
+          <p>[email pro] · [téléphone]</p>
+        </div>
+      </div>
+      <div class="text-left md:text-right">
+        <p class="font-sans text-xs tracking-[0.3em] uppercase text-terracotta mb-2">Devis n°</p>
+        <p class="font-serif text-2xl text-charcoal">DEV-2026-001</p>
+        <p class="text-sm text-charcoal/60 mt-3">Émis le : <strong>07/05/2026</strong></p>
+        <p class="text-sm text-charcoal/60">Valable jusqu'au : <strong>06/06/2026</strong></p>
+      </div>
+    </header>
+
+    <!-- À l'attention de -->
+    <section class="mt-10 grid md:grid-cols-2 gap-8">
+      <div>
+        <p class="font-sans text-xs tracking-[0.3em] uppercase text-terracotta mb-3">À l'attention de</p>
+        <p class="font-serif text-2xl text-charcoal">Métisses</p>
+        <p class="text-charcoal/70 text-sm mt-1">À l'attention de Mme Ndeye Mour N'diaye</p>
+        <p class="text-charcoal/70 text-sm mt-3">Rue Roture 70<br>4020 Liège (Outremeuse)<br>Belgique</p>
+      </div>
+      <div>
+        <p class="font-sans text-xs tracking-[0.3em] uppercase text-terracotta mb-3">Objet</p>
+        <p class="font-serif text-xl text-charcoal leading-snug">Refonte du site web — Voyage culinaire au cœur du Sénégal</p>
+      </div>
+    </section>
+
+    <!-- Préambule -->
+    <section class="mt-12">
+      <h2 class="font-serif text-3xl text-charcoal mb-4">Notre proposition</h2>
+      <p class="text-charcoal/80 leading-relaxed mb-4">
+        Madame N'diaye,
+      </p>
+      <p class="text-charcoal/80 leading-relaxed mb-4">
+        Suite à notre analyse du site actuel de Métisses, nous vous proposons une refonte complète, pensée pour mettre en valeur l'âme unique de votre maison : la cuisine sénégalaise lébou et peule, le cadre exceptionnel de votre maison du 18<sup>ème</sup> siècle, et l'accueil chaleureux qui fait votre signature.
+      </p>
+      <p class="text-charcoal/80 leading-relaxed mb-6">
+        Notre proposition s'articule autour de <strong>trois formules modulaires</strong>, vous laissant le choix entre une vitrine immersive simple, un site éditable en autonomie, ou une solution complète intégrant la réservation en ligne.
+      </p>
+      <div class="bg-ivory-warm border-l-4 border-terracotta px-6 py-4 rounded-r-lg">
+        <p class="text-charcoal/90 text-sm">
+          <strong>Démonstration visuelle déjà en ligne</strong> — Pour vous projeter, nous avons préparé une ébauche du site à cette adresse :
+          <a href="https://plateoo.github.io/metisses-showcase/" class="text-terracotta hover:underline ml-1">plateoo.github.io/metisses-showcase</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Comparatif des formules -->
+    <section class="mt-16">
+      <h2 class="font-serif text-3xl text-charcoal mb-2">Les trois formules</h2>
+      <p class="text-charcoal/60 text-sm mb-8">Tous les prix sont indiqués hors TVA (TVA belge 21% applicable selon votre statut).</p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- ESSENTIEL -->
+        <div class="formula-card border border-sand rounded-2xl p-6 bg-white flex flex-col">
+          <p class="font-sans text-xs tracking-[0.3em] uppercase text-charcoal/60 mb-2">Formule</p>
+          <h3 class="font-serif text-2xl text-charcoal mb-4">Essentiel</h3>
+          <p class="text-charcoal/70 text-sm mb-6 leading-relaxed">Une vitrine immersive, prête à séduire vos visiteurs. Le site est livré clé en main, sans modification autonome.</p>
+          <div class="mb-6">
+            <p class="font-serif text-4xl text-charcoal">1 190 €</p>
+            <p class="text-xs text-charcoal/60 mt-1">HTVA · Paiement unique</p>
+          </div>
+          <ul class="text-sm text-charcoal/80 space-y-2 flex-grow">
+            <li class="flex items-start gap-2"><span class="text-terracotta mt-0.5">✓</span> Site one-page sur-mesure</li>
+            <li class="flex items-start gap-2"><span class="text-terracotta mt-0.5">✓</span> Design immersif et animé</li>
+            <li class="flex items-start gap-2"><span class="text-terracotta mt-0.5">✓</span> Galerie photos interactive</li>
+            <li class="flex items-start gap-2"><span class="text-terracotta mt-0.5">✓</span> Section carte signature</li>
+            <li class="flex items-start gap-2"><span class="text-terracotta mt-0.5">✓</span> 100% responsive</li>
+            <li class="flex items-start gap-2"><span class="text-terracotta mt-0.5">✓</span> SEO de base</li>
+            <li class="flex items-start gap-2"><span class="text-terracotta mt-0.5">✓</span> Mise en ligne incluse</li>
+            <li class="flex items-start gap-2"><span class="text-terracotta mt-0.5">✓</span> 1 round de révisions</li>
+          </ul>
+        </div>
+
+        <!-- ÉVOLUTION (mis en avant) -->
+        <div class="formula-card border-2 border-terracotta rounded-2xl p-6 bg-terracotta/5 flex flex-col relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-ivory px-4 py-1 rounded-full text-xs font-medium tracking-wider">RECOMMANDÉ</div>
+          <p class="font-sans text-xs tracking-[0.3em] uppercase text-terracotta mb-2">Formule</p>
+          <h3 class="font-serif text-2xl text-charcoal mb-4">Évolution</h3>
+          <p class="text-charcoal/70 text-sm mb-6 leading-relaxed">Tout l'Essentiel + un espace pour modifier vous-même textes, photos, menu et événements à tout moment.</p>
+          <div class="mb-6">
+            <p class="font-serif text-4xl text-terracotta">1 990 €</p>
+            <p class="text-xs text-charcoal/60 mt-1">HTVA · Paiement unique</p>
+          </div>
+          <ul class="text-sm text-charcoal/80 space-y-2 flex-grow">
+            <li class="flex items-start gap-2"><span class="text-terracotta mt-0.5">✓</span> Tout l'Essentiel inclus</li>
+            <li class="flex items-start gap-2"><span class="text-terracotta mt-0.5">✓</span> Backoffice de modification</li>
+            <li class="flex items-start gap-2"><span class="text-terracotta mt-0.5">✓</span> Édition textes &amp; photos</li>
+            <li class="flex items-start gap-2"><span class="text-terracotta mt-0.5">✓</span> Modification du menu</li>
+            <li class="flex items-start gap-2"><span class="text-terracotta mt-0.5">✓</span> Gestion des événements</li>
+            <li class="flex items-start gap-2"><span class="text-terracotta mt-0.5">✓</span> Mise à jour horaires</li>
+            <li class="flex items-start gap-2"><span class="text-terracotta mt-0.5">✓</span> Formation 1h incluse</li>
+            <li class="flex items-start gap-2"><span class="text-terracotta mt-0.5">✓</span> 2 rounds de révisions</li>
+            <li class="flex items-start gap-2"><span class="text-terracotta mt-0.5">✓</span> 3 mois de support email</li>
+          </ul>
+        </div>
+
+        <!-- PREMIUM -->
+        <div class="formula-card border border-charcoal rounded-2xl p-6 bg-charcoal text-ivory flex flex-col">
+          <p class="font-sans text-xs tracking-[0.3em] uppercase text-ochre mb-2">Formule</p>
+          <h3 class="font-serif text-2xl mb-4">Premium</h3>
+          <p class="text-ivory/70 text-sm mb-6 leading-relaxed">L'expérience complète : tout d'Évolution + un module de réservation en ligne avec agenda intégré.</p>
+          <div class="mb-6">
+            <p class="font-serif text-4xl text-ochre">2 890 €</p>
+            <p class="text-xs text-ivory/60 mt-1">HTVA · Paiement unique</p>
+          </div>
+          <ul class="text-sm text-ivory/90 space-y-2 flex-grow">
+            <li class="flex items-start gap-2"><span class="text-ochre mt-0.5">✓</span> Tout Évolution inclus</li>
+            <li class="flex items-start gap-2"><span class="text-ochre mt-0.5">✓</span> Module réservation en ligne</li>
+            <li class="flex items-start gap-2"><span class="text-ochre mt-0.5">✓</span> Agenda &amp; gestion créneaux</li>
+            <li class="flex items-start gap-2"><span class="text-ochre mt-0.5">✓</span> Confirmation email automatique</li>
+            <li class="flex items-start gap-2"><span class="text-ochre mt-0.5">✓</span> Espace admin réservations</li>
+            <li class="flex items-start gap-2"><span class="text-ochre mt-0.5">✓</span> Blocage des dates fermées</li>
+            <li class="flex items-start gap-2"><span class="text-ochre mt-0.5">✓</span> Formation 1h30 incluse</li>
+            <li class="flex items-start gap-2"><span class="text-ochre mt-0.5">✓</span> 6 mois de support inclus</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Options à la carte -->
+    <section class="mt-16 page-break">
+      <h2 class="font-serif text-3xl text-charcoal mb-2">Options à la carte</h2>
+      <p class="text-charcoal/60 text-sm mb-8">À combiner librement avec n'importe quelle formule.</p>
+
+      <div class="border border-sand rounded-2xl overflow-hidden">
+        <table class="w-full text-sm">
+          <thead class="bg-ivory-warm">
+            <tr>
+              <th class="text-left px-6 py-4 font-serif text-charcoal text-base">Option</th>
+              <th class="text-left px-6 py-4 font-serif text-charcoal text-base">Description</th>
+              <th class="text-right px-6 py-4 font-serif text-charcoal text-base">Tarif HTVA</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-sand">
+            <tr>
+              <td class="px-6 py-4 font-medium text-charcoal">Pack multilingue</td>
+              <td class="px-6 py-4 text-charcoal/70">Site traduit en français, anglais et néerlandais</td>
+              <td class="px-6 py-4 text-right font-semibold text-charcoal">+ 490 €</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium text-charcoal">Pack SEO local Liège</td>
+              <td class="px-6 py-4 text-charcoal/70">Optimisation référencement Google sur 3 mois</td>
+              <td class="px-6 py-4 text-right font-semibold text-charcoal">+ 590 €</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium text-charcoal">Shooting photo professionnel</td>
+              <td class="px-6 py-4 text-charcoal/70">Demi-journée sur place, 25 photos retouchées</td>
+              <td class="px-6 py-4 text-right font-semibold text-charcoal">+ 450 €</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium text-charcoal">Notification SMS</td>
+              <td class="px-6 py-4 text-charcoal/70">Alertes SMS sur réservations (formule Premium)</td>
+              <td class="px-6 py-4 text-right font-semibold text-charcoal">+ 290 €</td>
+            </tr>
+            <tr class="bg-ivory-warm/40">
+              <td class="px-6 py-4 font-medium text-charcoal">Maintenance mensuelle</td>
+              <td class="px-6 py-4 text-charcoal/70">Mises à jour, sauvegarde, sécurité, support</td>
+              <td class="px-6 py-4 text-right font-semibold text-charcoal">49 €/mois</td>
+            </tr>
+            <tr class="bg-ivory-warm/40">
+              <td class="px-6 py-4 font-medium text-charcoal">Hébergement + nom de domaine</td>
+              <td class="px-6 py-4 text-charcoal/70">Hébergement performant + 1 nom de domaine .be</td>
+              <td class="px-6 py-4 text-right font-semibold text-charcoal">180 €/an</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Délais -->
+    <section class="mt-16">
+      <h2 class="font-serif text-3xl text-charcoal mb-6">Planning &amp; délais</h2>
+      <div class="grid md:grid-cols-4 gap-4">
+        <div class="bg-ivory-warm rounded-2xl p-5">
+          <p class="font-serif text-3xl text-terracotta mb-2">1</p>
+          <p class="font-medium text-charcoal text-sm mb-1">Cadrage</p>
+          <p class="text-xs text-charcoal/60">Brief, validation direction artistique · 3-5 jours</p>
+        </div>
+        <div class="bg-ivory-warm rounded-2xl p-5">
+          <p class="font-serif text-3xl text-terracotta mb-2">2</p>
+          <p class="font-medium text-charcoal text-sm mb-1">Production</p>
+          <p class="text-xs text-charcoal/60">Développement &amp; intégration · 2-3 semaines</p>
+        </div>
+        <div class="bg-ivory-warm rounded-2xl p-5">
+          <p class="font-serif text-3xl text-terracotta mb-2">3</p>
+          <p class="font-medium text-charcoal text-sm mb-1">Révisions</p>
+          <p class="text-xs text-charcoal/60">Ajustements selon vos retours · 1 semaine</p>
+        </div>
+        <div class="bg-ivory-warm rounded-2xl p-5">
+          <p class="font-serif text-3xl text-terracotta mb-2">4</p>
+          <p class="font-medium text-charcoal text-sm mb-1">Mise en ligne</p>
+          <p class="text-xs text-charcoal/60">Déploiement &amp; formation · 2-3 jours</p>
+        </div>
+      </div>
+      <p class="text-charcoal/60 text-sm mt-6 italic">Délai total estimé : <strong class="text-charcoal not-italic">3 à 4 semaines</strong> à compter de la signature.</p>
+    </section>
+
+    <!-- Conditions -->
+    <section class="mt-16">
+      <h2 class="font-serif text-3xl text-charcoal mb-6">Conditions</h2>
+      <div class="grid md:grid-cols-2 gap-6 text-sm text-charcoal/80">
+        <div>
+          <p class="font-medium text-charcoal mb-2">Modalités de paiement</p>
+          <ul class="space-y-1.5 leading-relaxed">
+            <li>· Acompte de 30% à la signature</li>
+            <li>· Solde à la mise en ligne</li>
+            <li>· Virement bancaire ou paiement en ligne</li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-medium text-charcoal mb-2">Validité &amp; engagement</p>
+          <ul class="space-y-1.5 leading-relaxed">
+            <li>· Devis valable 30 jours à compter de l'émission</li>
+            <li>· TVA 21% en sus selon votre statut</li>
+            <li>· Modifications hors périmètre : 75 €/h</li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-xs text-charcoal/50 mt-8 italic leading-relaxed">
+        Les prix indiqués s'entendent hors taxes. Les visuels présentés dans la démonstration sont des placeholders — un shooting photo professionnel ou la fourniture de vos propres photos sera nécessaire pour la version finale. Les services tiers (nom de domaine, hébergement, modules SMS) sont refacturés à prix coûtant.
+      </p>
+    </section>
+
+    <!-- Validation -->
+    <section class="mt-16 bg-charcoal text-ivory rounded-3xl p-10">
+      <h2 class="font-serif text-3xl mb-4">Pour valider ce devis</h2>
+      <p class="text-ivory/80 mb-8 leading-relaxed">Une seule étape : un email ou un appel pour confirmer la formule choisie. Nous vous transmettons ensuite le bon pour accord à signer et la facture d'acompte.</p>
+
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div>
+          <p class="font-sans text-xs tracking-[0.3em] uppercase text-ochre mb-2">Par email</p>
+          <p class="text-ivory text-lg">[email pro à compléter]</p>
+        </div>
+        <div>
+          <p class="font-sans text-xs tracking-[0.3em] uppercase text-ochre mb-2">Par téléphone</p>
+          <p class="text-ivory text-lg">[téléphone à compléter]</p>
+        </div>
+      </div>
+
+      <div class="border-t border-ivory/20 pt-6">
+        <p class="text-ivory/60 text-xs mb-2">Bon pour accord — Formule retenue : ____________________</p>
+        <div class="grid md:grid-cols-2 gap-8 mt-6">
+          <div>
+            <p class="text-xs text-ivory/60 mb-8">Pour le client</p>
+            <p class="border-t border-ivory/30 pt-2 text-xs text-ivory/60">Date · Signature · Cachet</p>
+          </div>
+          <div>
+            <p class="text-xs text-ivory/60 mb-8">Pour Serenity Studio</p>
+            <p class="border-t border-ivory/30 pt-2 text-xs text-ivory/60">Date · Signature</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-12 pt-8 border-t border-sand text-center">
+      <p class="font-serif text-xl text-charcoal">Serenity Studio<span class="text-terracotta">.</span></p>
+      <p class="text-xs text-charcoal/50 mt-2">Devis personnalisé · Confidentiel · Émis par Serenity Belgium pour Métisses Restaurant</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
