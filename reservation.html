@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Réservation — Métisses | Démo Module Premium</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        fontFamily: { 'serif': ['Fraunces', 'serif'], 'sans': ['DM Sans', 'sans-serif'] },
+        colors: {
+          'ivory': '#FAF6F0', 'ivory-warm': '#F4ECDF', 'terracotta': '#C75D3F',
+          'terracotta-deep': '#9C3E25', 'ochre': '#D89556', 'savane': '#5C6B3F',
+          'brass': '#B8945F', 'charcoal': '#2A1F1A', 'sand': '#E8D9C0',
+        }
+      }}
+    }
+  </script>
+  <style>
+    .day-cell { transition: all 0.2s ease; }
+    .day-cell:hover:not(.disabled):not(.selected) { background: #F4ECDF; cursor: pointer; }
+    .day-cell.selected { background: #C75D3F; color: #FAF6F0; }
+    .day-cell.disabled { color: #ccc; cursor: not-allowed; }
+    .time-slot { transition: all 0.2s ease; cursor: pointer; }
+    .time-slot:hover { border-color: #C75D3F; }
+    .time-slot.selected { background: #C75D3F; color: #FAF6F0; border-color: #C75D3F; }
+  </style>
+</head>
+<body class="bg-ivory text-charcoal font-sans antialiased min-h-screen">
+
+  <!-- Banner démo -->
+  <div class="bg-terracotta text-ivory text-center py-3 px-6 text-sm">
+    <strong>Démo · Formule Premium</strong> — Aperçu visuel du module de réservation. <a href="devis.html" class="underline hover:text-ochre">Voir le devis</a> · <a href="index.html" class="underline hover:text-ochre">Retour au site</a>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-6 py-12 md:py-20">
+
+    <!-- En-tête -->
+    <header class="text-center mb-12">
+      <p class="font-sans text-xs tracking-[0.3em] uppercase text-terracotta mb-3">Réservation en ligne</p>
+      <h1 class="font-serif text-4xl md:text-5xl text-charcoal mb-4">Réservez votre <em class="text-terracotta">voyage gustatif</em></h1>
+      <p class="text-charcoal/70 max-w-xl mx-auto">Choisissez votre date, l'horaire qui vous convient et le nombre de convives. Confirmation immédiate par email.</p>
+    </header>
+
+    <!-- Formulaire en 3 étapes -->
+    <div class="bg-white rounded-3xl shadow-lg overflow-hidden">
+
+      <!-- Étapes indicateur -->
+      <div class="bg-ivory-warm px-8 py-5 flex items-center justify-between border-b border-sand">
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 bg-terracotta text-ivory rounded-full flex items-center justify-center font-medium text-sm">1</span>
+          <span class="font-medium text-charcoal text-sm">Date &amp; convives</span>
+        </div>
+        <div class="flex-1 mx-4 h-px bg-sand"></div>
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 bg-sand text-charcoal/60 rounded-full flex items-center justify-center font-medium text-sm">2</span>
+          <span class="font-medium text-charcoal/60 text-sm">Horaire</span>
+        </div>
+        <div class="flex-1 mx-4 h-px bg-sand"></div>
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 bg-sand text-charcoal/60 rounded-full flex items-center justify-center font-medium text-sm">3</span>
+          <span class="font-medium text-charcoal/60 text-sm">Coordonnées</span>
+        </div>
+      </div>
+
+      <div class="p-8 md:p-12 grid md:grid-cols-2 gap-12">
+
+        <!-- Calendrier -->
+        <div>
+          <p class="font-serif text-xl text-charcoal mb-6">Choisissez une date</p>
+          <div class="bg-ivory rounded-2xl p-6">
+            <div class="flex items-center justify-between mb-4">
+              <button class="text-charcoal/50 hover:text-terracotta">&lt;</button>
+              <p class="font-medium text-charcoal">Mai 2026</p>
+              <button class="text-charcoal/50 hover:text-terracotta">&gt;</button>
+            </div>
+            <div class="grid grid-cols-7 gap-2 text-center">
+              <div class="text-xs text-charcoal/50 py-2">L</div>
+              <div class="text-xs text-charcoal/50 py-2">M</div>
+              <div class="text-xs text-charcoal/50 py-2">M</div>
+              <div class="text-xs text-charcoal/50 py-2">J</div>
+              <div class="text-xs text-charcoal/50 py-2">V</div>
+              <div class="text-xs text-charcoal/50 py-2">S</div>
+              <div class="text-xs text-charcoal/50 py-2">D</div>
+
+              <div class="day-cell disabled py-3 rounded-lg text-sm">28</div>
+              <div class="day-cell disabled py-3 rounded-lg text-sm">29</div>
+              <div class="day-cell disabled py-3 rounded-lg text-sm">30</div>
+              <div class="day-cell py-3 rounded-lg text-sm">1</div>
+              <div class="day-cell py-3 rounded-lg text-sm">2</div>
+              <div class="day-cell py-3 rounded-lg text-sm">3</div>
+              <div class="day-cell py-3 rounded-lg text-sm">4</div>
+              <div class="day-cell py-3 rounded-lg text-sm">5</div>
+              <div class="day-cell py-3 rounded-lg text-sm">6</div>
+              <div class="day-cell py-3 rounded-lg text-sm">7</div>
+              <div class="day-cell py-3 rounded-lg text-sm">8</div>
+              <div class="day-cell py-3 rounded-lg text-sm">9</div>
+              <div class="day-cell py-3 rounded-lg text-sm">10</div>
+              <div class="day-cell py-3 rounded-lg text-sm">11</div>
+              <div class="day-cell py-3 rounded-lg text-sm">12</div>
+              <div class="day-cell py-3 rounded-lg text-sm">13</div>
+              <div class="day-cell py-3 rounded-lg text-sm">14</div>
+              <div class="day-cell selected py-3 rounded-lg text-sm font-bold">15</div>
+              <div class="day-cell py-3 rounded-lg text-sm">16</div>
+              <div class="day-cell py-3 rounded-lg text-sm">17</div>
+              <div class="day-cell py-3 rounded-lg text-sm">18</div>
+              <div class="day-cell py-3 rounded-lg text-sm">19</div>
+              <div class="day-cell py-3 rounded-lg text-sm">20</div>
+              <div class="day-cell py-3 rounded-lg text-sm">21</div>
+              <div class="day-cell py-3 rounded-lg text-sm">22</div>
+              <div class="day-cell py-3 rounded-lg text-sm">23</div>
+              <div class="day-cell py-3 rounded-lg text-sm">24</div>
+              <div class="day-cell py-3 rounded-lg text-sm">25</div>
+              <div class="day-cell py-3 rounded-lg text-sm">26</div>
+              <div class="day-cell py-3 rounded-lg text-sm">27</div>
+              <div class="day-cell py-3 rounded-lg text-sm">28</div>
+              <div class="day-cell py-3 rounded-lg text-sm">29</div>
+              <div class="day-cell py-3 rounded-lg text-sm">30</div>
+              <div class="day-cell py-3 rounded-lg text-sm">31</div>
+            </div>
+            <p class="text-xs text-charcoal/50 mt-4 text-center">Date sélectionnée : <strong class="text-charcoal">vendredi 15 mai 2026</strong></p>
+          </div>
+        </div>
+
+        <!-- Détails -->
+        <div>
+          <p class="font-serif text-xl text-charcoal mb-6">Combien de convives ?</p>
+          <div class="grid grid-cols-4 gap-3 mb-8">
+            <div class="time-slot border-2 border-sand py-4 rounded-xl text-center font-medium">2</div>
+            <div class="time-slot selected border-2 py-4 rounded-xl text-center font-medium">4</div>
+            <div class="time-slot border-2 border-sand py-4 rounded-xl text-center font-medium">6</div>
+            <div class="time-slot border-2 border-sand py-4 rounded-xl text-center font-medium">8+</div>
+          </div>
+
+          <p class="font-serif text-xl text-charcoal mb-6">Horaire souhaité</p>
+          <div class="grid grid-cols-3 gap-3 mb-10">
+            <div class="time-slot border-2 border-sand py-3 rounded-xl text-center text-sm">18:00</div>
+            <div class="time-slot border-2 border-sand py-3 rounded-xl text-center text-sm">18:30</div>
+            <div class="time-slot selected border-2 py-3 rounded-xl text-center text-sm">19:00</div>
+            <div class="time-slot border-2 border-sand py-3 rounded-xl text-center text-sm">19:30</div>
+            <div class="time-slot border-2 border-sand py-3 rounded-xl text-center text-sm">20:00</div>
+            <div class="time-slot border-2 border-sand py-3 rounded-xl text-center text-sm">20:30</div>
+            <div class="time-slot border-2 border-sand py-3 rounded-xl text-center text-sm">21:00</div>
+            <div class="time-slot border-2 border-sand py-3 rounded-xl text-center text-sm">21:30</div>
+            <div class="time-slot border-2 border-sand py-3 rounded-xl text-center text-sm">22:00</div>
+          </div>
+
+          <button class="w-full bg-terracotta text-ivory py-4 rounded-full hover:bg-terracotta-deep transition font-medium flex items-center justify-center gap-2">
+            Continuer
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Récapitulatif visuel -->
+    <div class="mt-10 bg-charcoal text-ivory rounded-3xl p-8 md:p-10 grid md:grid-cols-3 gap-8">
+      <div>
+        <p class="font-sans text-xs tracking-[0.3em] uppercase text-ochre mb-2">Date</p>
+        <p class="font-serif text-2xl">Ven. 15 mai 2026</p>
+      </div>
+      <div>
+        <p class="font-sans text-xs tracking-[0.3em] uppercase text-ochre mb-2">Convives</p>
+        <p class="font-serif text-2xl">4 personnes</p>
+      </div>
+      <div>
+        <p class="font-sans text-xs tracking-[0.3em] uppercase text-ochre mb-2">Horaire</p>
+        <p class="font-serif text-2xl">19:00</p>
+      </div>
+    </div>
+
+    <!-- Avantages -->
+    <div class="mt-16 grid md:grid-cols-3 gap-6">
+      <div class="bg-ivory-warm rounded-2xl p-6 text-center">
+        <div class="w-12 h-12 mx-auto mb-4 bg-terracotta rounded-full flex items-center justify-center">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <p class="font-serif text-lg mb-2">Confirmation immédiate</p>
+        <p class="text-charcoal/60 text-sm">Email automatique avec récapitulatif</p>
+      </div>
+      <div class="bg-ivory-warm rounded-2xl p-6 text-center">
+        <div class="w-12 h-12 mx-auto mb-4 bg-ochre rounded-full flex items-center justify-center">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <p class="font-serif text-lg mb-2">Disponible 24/7</p>
+        <p class="text-charcoal/60 text-sm">Réservez quand vous voulez</p>
+      </div>
+      <div class="bg-ivory-warm rounded-2xl p-6 text-center">
+        <div class="w-12 h-12 mx-auto mb-4 bg-savane rounded-full flex items-center justify-center">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1v-7h3v5zM3 19a2 2 0 002 2h1v-7H3v5z"/></svg>
+        </div>
+        <p class="font-serif text-lg mb-2">SMS optionnel</p>
+        <p class="text-charcoal/60 text-sm">Rappel la veille de votre venue</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-16 text-center text-charcoal/50 text-sm">
+      <p class="italic mb-2">⚠️ Cette page est un mockup de présentation. Le module de réservation sera entièrement fonctionnel dans la formule Premium.</p>
+      <p>Démo conçue par <a href="devis.html" class="text-terracotta hover:underline">Serenity Studio</a> pour Métisses Restaurant</p>
+    </footer>
+
+  </div>
+</body>
+</html>

@@ -164,8 +164,11 @@
     <!-- Pattern wax SVG en fond -->
     <div class="absolute inset-0 opacity-[0.08]" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22 viewBox=%220 0 120 120%22><circle cx=%2260%22 cy=%2260%22 r=%2240%22 fill=%22none%22 stroke=%22%23D89556%22 stroke-width=%221%22/><circle cx=%2260%22 cy=%2260%22 r=%2225%22 fill=%22none%22 stroke=%22%23D89556%22 stroke-width=%221%22/><circle cx=%2260%22 cy=%2260%22 r=%2210%22 fill=%22%23D89556%22/></svg>');"></div>
 
-    <!-- Gradient overlay chaud -->
-    <div class="absolute inset-0 bg-gradient-to-br from-terracotta-deep/60 via-charcoal/80 to-charcoal"></div>
+    <!-- Image de fond hero -->
+    <img src="images/hero.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
+
+    <!-- Gradient overlay par-dessus l'image -->
+    <div class="absolute inset-0 bg-gradient-to-br from-terracotta-deep/70 via-charcoal/85 to-charcoal/90"></div>
 
     <!-- Forme organique animée -->
     <div class="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full bg-ochre/20 blur-3xl animate-pulse-slow"></div>
@@ -199,20 +202,13 @@
   <!-- ========== HISTOIRE ========== -->
   <section id="histoire" class="py-24 md:py-32 bg-ivory-warm relative overflow-hidden">
     <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-      <!-- Portrait stylisé en SVG -->
+      <!-- Portrait chef avec photo -->
       <div class="reveal">
         <div class="relative aspect-[4/5] max-w-md mx-auto">
           <div class="absolute inset-0 bg-terracotta rounded-tl-[120px] rounded-br-[120px]"></div>
-          <div class="absolute inset-4 bg-ochre rounded-tl-[100px] rounded-br-[100px] flex items-center justify-center">
-            <!-- Silhouette portrait stylisée -->
-            <svg viewBox="0 0 200 250" class="w-3/4 h-3/4 text-charcoal/80">
-              <circle cx="100" cy="80" r="50" fill="currentColor" opacity="0.9"/>
-              <path d="M30 250 Q30 150 100 150 Q170 150 170 250 Z" fill="currentColor" opacity="0.9"/>
-              <!-- Foulard stylisé -->
-              <path d="M50 60 Q100 20 150 60 Q140 30 100 25 Q60 30 50 60 Z" fill="#C75D3F"/>
-            </svg>
+          <div class="absolute inset-4 rounded-tl-[100px] rounded-br-[100px] overflow-hidden">
+            <img src="images/chef.jpg" alt="Chef de Métisses" class="w-full h-full object-cover" loading="lazy" />
           </div>
-          <!-- Pattern décoratif -->
           <div class="absolute -bottom-6 -right-6 w-24 h-24 border-2 border-brass rounded-full"></div>
           <div class="absolute -top-6 -left-6 w-16 h-16 bg-savane rounded-full opacity-80"></div>
         </div>
@@ -253,14 +249,7 @@
         <!-- Plat 1 : Acras -->
         <article class="dish-card group reveal">
           <div class="aspect-[4/5] bg-sand rounded-3xl overflow-hidden relative">
-            <svg viewBox="0 0 200 250" class="w-full h-full">
-              <circle cx="100" cy="160" r="70" fill="#D89556"/>
-              <circle cx="100" cy="160" r="55" fill="#9C3E25"/>
-              <circle cx="85" cy="145" r="15" fill="#C75D3F"/>
-              <circle cx="115" cy="155" r="12" fill="#C75D3F"/>
-              <circle cx="100" cy="170" r="14" fill="#C75D3F"/>
-              <circle cx="120" cy="135" r="10" fill="#C75D3F"/>
-            </svg>
+            <img src="images/plat-acras.jpg" alt="Acras" class="w-full h-full object-cover" loading="lazy" />
             <div class="dish-overlay">
               <p class="text-ivory text-sm leading-relaxed">Beignets de poisson épicés, croustillants à l'extérieur, tendres à l'intérieur. Servis avec sauce kani.</p>
             </div>
@@ -275,13 +264,7 @@
         <!-- Plat 2 : Poulet moambe -->
         <article class="dish-card group reveal">
           <div class="aspect-[4/5] bg-sand rounded-3xl overflow-hidden relative">
-            <svg viewBox="0 0 200 250" class="w-full h-full">
-              <ellipse cx="100" cy="170" rx="80" ry="40" fill="#5C6B3F"/>
-              <ellipse cx="100" cy="160" rx="70" ry="35" fill="#9C3E25"/>
-              <path d="M70 150 Q100 130 130 150 Q120 170 100 170 Q80 170 70 150 Z" fill="#C75D3F"/>
-              <circle cx="85" cy="155" r="6" fill="#D89556"/>
-              <circle cx="115" cy="160" r="6" fill="#D89556"/>
-            </svg>
+            <img src="images/plat-moambe.jpg" alt="Poulet Moambe" class="w-full h-full object-cover" loading="lazy" />
             <div class="dish-overlay">
               <p class="text-ivory text-sm leading-relaxed">Poulet mijoté dans une sauce onctueuse à la pâte d'arachide et tomates. Servi avec riz blanc parfumé.</p>
             </div>
@@ -296,13 +279,7 @@
         <!-- Plat 3 : Canard à la mangue -->
         <article class="dish-card group reveal">
           <div class="aspect-[4/5] bg-sand rounded-3xl overflow-hidden relative">
-            <svg viewBox="0 0 200 250" class="w-full h-full">
-              <ellipse cx="100" cy="170" rx="75" ry="38" fill="#B8945F"/>
-              <path d="M50 165 Q100 130 150 165 Q140 185 100 185 Q60 185 50 165 Z" fill="#9C3E25"/>
-              <ellipse cx="80" cy="150" rx="18" ry="12" fill="#D89556"/>
-              <ellipse cx="120" cy="155" rx="20" ry="13" fill="#D89556"/>
-              <ellipse cx="100" cy="165" rx="15" ry="10" fill="#D89556"/>
-            </svg>
+            <img src="images/plat-canard.jpg" alt="Canard à la mangue" class="w-full h-full object-cover" loading="lazy" />
             <div class="dish-overlay">
               <p class="text-ivory text-sm leading-relaxed">Magret de canard rôti, sauce mangue épicée, accompagné de légumes de saison.</p>
             </div>
@@ -317,12 +294,7 @@
         <!-- Plat 4 : Yassa -->
         <article class="dish-card group reveal">
           <div class="aspect-[4/5] bg-sand rounded-3xl overflow-hidden relative">
-            <svg viewBox="0 0 200 250" class="w-full h-full">
-              <circle cx="100" cy="160" r="75" fill="#D89556"/>
-              <path d="M40 160 Q100 110 160 160" stroke="#C75D3F" stroke-width="8" fill="none"/>
-              <path d="M50 170 Q100 130 150 170" stroke="#9C3E25" stroke-width="6" fill="none"/>
-              <circle cx="100" cy="160" r="20" fill="#5C6B3F"/>
-            </svg>
+            <img src="images/plat-yassa.jpg" alt="Yassa" class="w-full h-full object-cover" loading="lazy" />
             <div class="dish-overlay">
               <p class="text-ivory text-sm leading-relaxed">Poulet ou poisson mariné au citron et oignons confits. Plat emblématique de la Casamance.</p>
             </div>
@@ -337,14 +309,7 @@
         <!-- Plat 5 : Thieboudienne -->
         <article class="dish-card group reveal">
           <div class="aspect-[4/5] bg-sand rounded-3xl overflow-hidden relative">
-            <svg viewBox="0 0 200 250" class="w-full h-full">
-              <circle cx="100" cy="160" r="80" fill="#9C3E25"/>
-              <circle cx="100" cy="160" r="65" fill="#C75D3F"/>
-              <ellipse cx="100" cy="155" rx="40" ry="20" fill="#B8945F"/>
-              <circle cx="80" cy="170" r="8" fill="#5C6B3F"/>
-              <circle cx="120" cy="172" r="8" fill="#5C6B3F"/>
-              <circle cx="100" cy="180" r="7" fill="#5C6B3F"/>
-            </svg>
+            <img src="images/plat-thieboudienne.jpg" alt="Thieboudienne" class="w-full h-full object-cover" loading="lazy" />
             <div class="dish-overlay">
               <p class="text-ivory text-sm leading-relaxed">Plat national sénégalais : riz rouge mijoté avec poisson, légumes et tamarin.</p>
             </div>
@@ -359,11 +324,7 @@
         <!-- Plat 6 : Bissap -->
         <article class="dish-card group reveal">
           <div class="aspect-[4/5] bg-sand rounded-3xl overflow-hidden relative">
-            <svg viewBox="0 0 200 250" class="w-full h-full">
-              <path d="M70 80 L70 200 Q70 220 100 220 Q130 220 130 200 L130 80 Z" fill="#9C3E25"/>
-              <ellipse cx="100" cy="80" rx="30" ry="8" fill="#C75D3F"/>
-              <path d="M85 100 Q100 95 115 100" stroke="#D89556" stroke-width="2" fill="none"/>
-            </svg>
+            <img src="images/plat-bissap.jpg" alt="Bissap" class="w-full h-full object-cover" loading="lazy" />
             <div class="dish-overlay">
               <p class="text-ivory text-sm leading-relaxed">Infusion glacée de fleurs d'hibiscus, rafraîchissante et parfumée à la menthe.</p>
             </div>
@@ -427,17 +388,34 @@
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-        <div class="aspect-square bg-terracotta rounded-2xl reveal flex items-center justify-center text-ivory/30 font-serif text-sm">[ Plat ]</div>
-        <div class="aspect-[1/1.4] bg-ochre rounded-2xl row-span-2 reveal flex items-center justify-center text-charcoal/30 font-serif text-sm">[ Salle ]</div>
-        <div class="aspect-square bg-savane rounded-2xl reveal flex items-center justify-center text-ivory/40 font-serif text-sm">[ Détail ]</div>
-        <div class="aspect-square bg-sand rounded-2xl reveal flex items-center justify-center text-charcoal/30 font-serif text-sm">[ Cuisine ]</div>
-        <div class="aspect-square bg-brass rounded-2xl reveal flex items-center justify-center text-ivory/30 font-serif text-sm">[ Plat ]</div>
-        <div class="aspect-square bg-charcoal rounded-2xl reveal flex items-center justify-center text-ivory/30 font-serif text-sm">[ Ambiance ]</div>
-        <div class="aspect-[1/1.4] bg-terracotta-deep rounded-2xl row-span-2 reveal flex items-center justify-center text-ivory/30 font-serif text-sm">[ Chef ]</div>
-        <div class="aspect-square bg-ochre rounded-2xl reveal flex items-center justify-center text-charcoal/30 font-serif text-sm">[ Boisson ]</div>
-        <div class="aspect-square bg-sand rounded-2xl reveal flex items-center justify-center text-charcoal/30 font-serif text-sm">[ Détail ]</div>
+        <div class="aspect-square rounded-2xl overflow-hidden reveal">
+          <img src="images/plat-moambe.jpg" alt="" class="w-full h-full object-cover hover:scale-105 transition duration-700" loading="lazy" />
+        </div>
+        <div class="aspect-[1/1.4] rounded-2xl overflow-hidden row-span-2 reveal">
+          <img src="images/ambiance-1.jpg" alt="" class="w-full h-full object-cover hover:scale-105 transition duration-700" loading="lazy" />
+        </div>
+        <div class="aspect-square rounded-2xl overflow-hidden reveal">
+          <img src="images/plat-acras.jpg" alt="" class="w-full h-full object-cover hover:scale-105 transition duration-700" loading="lazy" />
+        </div>
+        <div class="aspect-square rounded-2xl overflow-hidden reveal">
+          <img src="images/plat-canard.jpg" alt="" class="w-full h-full object-cover hover:scale-105 transition duration-700" loading="lazy" />
+        </div>
+        <div class="aspect-square rounded-2xl overflow-hidden reveal">
+          <img src="images/plat-yassa.jpg" alt="" class="w-full h-full object-cover hover:scale-105 transition duration-700" loading="lazy" />
+        </div>
+        <div class="aspect-square rounded-2xl overflow-hidden reveal">
+          <img src="images/ambiance-2.jpg" alt="" class="w-full h-full object-cover hover:scale-105 transition duration-700" loading="lazy" />
+        </div>
+        <div class="aspect-[1/1.4] rounded-2xl overflow-hidden row-span-2 reveal">
+          <img src="images/chef.jpg" alt="" class="w-full h-full object-cover hover:scale-105 transition duration-700" loading="lazy" />
+        </div>
+        <div class="aspect-square rounded-2xl overflow-hidden reveal">
+          <img src="images/plat-bissap.jpg" alt="" class="w-full h-full object-cover hover:scale-105 transition duration-700" loading="lazy" />
+        </div>
+        <div class="aspect-square rounded-2xl overflow-hidden reveal">
+          <img src="images/plat-thieboudienne.jpg" alt="" class="w-full h-full object-cover hover:scale-105 transition duration-700" loading="lazy" />
+        </div>
       </div>
-      <p class="text-center text-charcoal/50 text-sm mt-8 italic">Placeholders v1 — à remplacer par photos client</p>
     </div>
   </section>
 
