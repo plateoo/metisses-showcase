@@ -625,34 +625,60 @@
 
   <!-- ========== FOOTER ========== -->
   <footer class="bg-charcoal text-ivory/60 py-12">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-      <p class="font-serif text-xl text-ivory">Métisses<span class="text-terracotta">.</span></p>
-      <div class="flex items-center gap-3">
-        <a href="https://www.instagram.com/restaurant.metisses/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Métisses" class="w-9 h-9 rounded-full bg-ivory/10 hover:bg-terracotta flex items-center justify-center transition">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-ivory">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-          </svg>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=100057718523905" target="_blank" rel="noopener noreferrer" aria-label="Facebook Métisses" class="w-9 h-9 rounded-full bg-ivory/10 hover:bg-terracotta flex items-center justify-center transition">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="text-ivory">
-            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-          </svg>
+    <div class="max-w-6xl mx-auto px-6">
+
+      <!-- Ligne principale : logo + sociaux + copyright + nav -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-serif text-xl text-ivory">Métisses<span class="text-terracotta">.</span></p>
+
+        <!-- Icônes sociales du restaurant -->
+        <div class="flex items-center gap-3">
+          <a href="https://www.instagram.com/restaurant.metisses/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Métisses" class="w-9 h-9 rounded-full bg-ivory/10 hover:bg-terracotta flex items-center justify-center transition">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-ivory">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100057718523905" target="_blank" rel="noopener noreferrer" aria-label="Facebook Métisses" class="w-9 h-9 rounded-full bg-ivory/10 hover:bg-terracotta flex items-center justify-center transition">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="text-ivory">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+        </div>
+
+        <p class="text-sm">© 2026 Métisses — Tous droits réservés.</p>
+
+        <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm">
+          <a href="reservation.html" class="text-ivory/60 hover:text-terracotta transition">Réservation</a>
+          <span class="text-ivory/30">·</span>
+          <a href="admin.html" class="text-ivory/60 hover:text-terracotta transition">Espace de gestion</a>
+          <span class="text-ivory/30">·</span>
+          <a href="devis.html" class="text-ochre hover:text-terracotta transition">Notre proposition</a>
+          <span class="text-ivory/30">·</span>
+          <a href="cgv.html" class="text-ivory/60 hover:text-terracotta transition">CGV</a>
+        </div>
+      </div>
+
+      <!-- Ligne basse : badge tampon Serenity Studio -->
+      <div class="mt-12 pt-8 border-t border-ivory/10 flex justify-center md:justify-end">
+        <a href="mailto:contact.serenitybelgium@gmail.com?subject=Demande%20d'information%20-%20Site%20web%20Serenity%20Studio"
+           aria-label="Conçu par Serenity Studio – me contacter par email"
+           class="inline-block -rotate-2 hover:rotate-0 transition-transform duration-300">
+          <div class="p-1 rounded-md border border-brass/40">
+            <div class="px-6 pt-3 pb-3.5 rounded-sm text-center border border-brass/60">
+              <span class="font-serif italic block text-[10px] tracking-[0.3em] mb-1 text-brass uppercase">Conçu par</span>
+              <span class="font-serif block text-base leading-none text-ochre">Serenity Studio</span>
+              <div class="mt-2 pt-2 border-t border-brass/30 flex items-center justify-center gap-2">
+                <span class="w-1 h-1 rounded-full bg-brass/60"></span>
+                <span class="text-[9px] tracking-[0.2em] text-brass">2026</span>
+                <span class="w-1 h-1 rounded-full bg-brass/60"></span>
+              </div>
+            </div>
+          </div>
         </a>
       </div>
-      <p class="text-sm">© 2026 Métisses — Tous droits réservés.</p>
-      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm">
-        <a href="reservation.html" class="text-ivory/60 hover:text-terracotta transition">Réservation</a>
-        <span class="text-ivory/30">·</span>
-        <a href="admin.html" class="text-ivory/60 hover:text-terracotta transition">Espace de gestion</a>
-        <span class="text-ivory/30">·</span>
-        <a href="devis.html" class="text-ochre hover:text-terracotta transition">Notre proposition</a>
-        <span class="text-ivory/30">·</span>
-        <a href="cgv.html" class="text-ivory/60 hover:text-terracotta transition">CGV</a>
-        <span class="text-ivory/30">·</span>
-        <span>Conçu par <a href="mailto:contact.serenitybelgium@gmail.com?subject=Demande%20d'information%20-%20Site%20web%20Serenity%20Studio" class="text-ochre hover:text-terracotta transition font-medium">Serenity Studio</a></span>
-      </div>
+
     </div>
   </footer>
 
